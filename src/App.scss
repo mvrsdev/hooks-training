@@ -1,0 +1,105 @@
+$theme-black: #181818;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  background: $theme-black;
+  color: #fff;
+  letter-spacing: 0.4rem;
+  padding: 0.95rem 9rem 0.7rem 4rem;
+  text-transform: uppercase;
+  display: table;
+  cursor: default;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  background: transparent;
+  color: $theme-black;
+  padding-left: 1rem;
+  border: solid 1px $theme-black;
+  border-left: none;
+  border-right: none;
+}
+
+button,
+input[type='button'] {
+  background: white;
+  border: solid 2px $theme-black;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  padding: 0.6rem 1.5rem;
+  border-radius: 3rem;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    background: $theme-black;
+    color: white;
+  }
+
+  &.icon-button {
+    padding: 0;
+    min-height: 2.2rem;
+    min-width: 2.2rem;
+    font-size: 1.2rem;
+  }
+}
+
+form {
+  input {
+    border-radius: 2rem;
+    border: solid 2px;
+    outline: none;
+
+    &:not([type='button']) {
+      border-color: rgba($theme-black, 0.3);
+      padding: 0.5rem 0.725rem;
+
+      &:hover,
+      &:active,
+      &:focus {
+        border-color: $theme-black;
+      }
+    }
+  }
+
+  label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  li {
+    padding: 0.4rem;
+    a, a:visited {
+      padding: 0.4rem 1rem;
+      text-decoration: none;
+      color: $theme-black;
+      background-image: linear-gradient($theme-black, $theme-black);
+      background-repeat: no-repeat;
+      background-size: 0 100%;
+      background-position-x: right;
+      transition: all 400ms cubic-bezier(0.19, 1, 0.22, 1);
+
+      &:hover {
+        background-size: 100% 100%;
+        color: #fff;
+      }
+    }
+  }
+}
