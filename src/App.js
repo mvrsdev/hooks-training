@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import {
+  ConditionalRenderingPage,
+  EffectHookPage,
+  FetchingApiPage,
+  LoopRenderingPage,
+  ReducerHookPage,
+  StateHookPage,
+  WelcomePage,
+} from './pages';
+import './App.scss';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="hooks">
+          <Route path="useState" element={<StateHookPage />} />
+          <Route path="useEffect" element={<EffectHookPage />} />
+          <Route path="useReducer" element={<ReducerHookPage />} />
+        </Route>
+        <Route path="rendering">
+          <Route path="conditional" element={<ConditionalRenderingPage />} />
+          <Route path="loop" element={<LoopRenderingPage />} />
+        </Route>
+        <Route path="apis">
+          <Route path="fetching" element={<FetchingApiPage />} />
+        </Route>
+
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
