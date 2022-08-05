@@ -1,6 +1,9 @@
 import ExerciseLayout from '../../layouts/ExerciseLayout';
+import { useState } from 'react';
 
 export const StateHookPage = () => {
+  const [username, setUsername] = useState('');
+  const [currentTime, setCurrentTime] = useState('');
   const submitFormHandler = (e) => {
     e.preventDefault();
 
@@ -8,6 +11,8 @@ export const StateHookPage = () => {
     const { username, currentTime } = Object.fromEntries(
       new FormData(e.target)
     );
+    setUsername(username);
+    setCurrentTime(currentTime);
   };
 
   return (
