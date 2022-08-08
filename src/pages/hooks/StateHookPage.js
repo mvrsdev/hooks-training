@@ -4,7 +4,6 @@ import { useState } from 'react';
 export const StateHookPage = () => {
   const [username, setUsername] = useState('');
   const [currentTime, setCurrentTime] = useState('');
-  const [click, setClick] = useState(false);
   
   const submitFormHandler = (e) => {
     e.preventDefault();
@@ -15,7 +14,6 @@ export const StateHookPage = () => {
     );
     setUsername(username);
     setCurrentTime(currentTime);
-    setClick(true);
 
   };
 
@@ -38,7 +36,7 @@ export const StateHookPage = () => {
           <button type={'submit'}>Greet me!</button>
         </form>
         <h2 className="inverted">Exercise result</h2>
-        {click ? (
+        {currentTime && username ? (
           <p>
             {getGreeting(currentTime)}, {username}!
           </p> 
