@@ -1,6 +1,10 @@
 import ExerciseLayout from '../../layouts/ExerciseLayout';
+import { useState } from 'react';
 
 export const StateHookPage = () => {
+  const [username, setUsername] = useState('');
+  const [currentTime, setCurrentTime] = useState('');
+  
   const submitFormHandler = (e) => {
     e.preventDefault();
 
@@ -8,6 +12,9 @@ export const StateHookPage = () => {
     const { username, currentTime } = Object.fromEntries(
       new FormData(e.target)
     );
+    setUsername(username);
+    setCurrentTime(currentTime);
+
   };
 
   return (
@@ -29,10 +36,11 @@ export const StateHookPage = () => {
           <button type={'submit'}>Greet me!</button>
         </form>
         <h2 className="inverted">Exercise result</h2>
-        <p>
-          {/* Get greeting according the time */ 'Hi'},{' '}
-          {/* Name goes here */ 'so-and-so'}!
-        </p>
+        {currentTime && username ? (
+          <p>
+            {getGreeting(currentTime)}, {username}!
+          </p> 
+        ) : null }
       </ExerciseLayout>
     </>
   );
@@ -58,7 +66,7 @@ const Intro = () => (
  * Get the appropriate greeting according the time of the day.
  * @param {string} time Time used to decide which greeting best fits your situation
  * @returns The appropriate greeting as string
- */
+ **/
 const getGreeting = (time) => {
   const hour = parseInt(time.split(':')[0], 10) || 0;
   if (hour < 5) return 'evening';
