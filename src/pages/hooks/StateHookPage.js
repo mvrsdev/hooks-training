@@ -4,7 +4,7 @@ import { useState } from 'react';
 export const StateHookPage = () => {
   const [username, setUsername] = useState('');
   const [currentTime, setCurrentTime] = useState('');
-  
+
   const submitFormHandler = (e) => {
     e.preventDefault();
 
@@ -14,35 +14,32 @@ export const StateHookPage = () => {
     );
     setUsername(username);
     setCurrentTime(currentTime);
-
   };
 
   return (
-    <>
-      <ExerciseLayout title="The useState Hook" introContent={<Intro />}>
-        <form onSubmit={submitFormHandler} style={{ marginBottom: 32 }}>
-          <label>What is your name?</label>
-          <input
-            type={'text'}
-            name="username"
-            placeholder="E.g: John Doe"
-            autoComplete="off"
-          />
-          <br />
-          <label>What time is it?</label>
-          <input type={'time'} name="currentTime" />
-          <br />
-          <br />
-          <button type={'submit'}>Greet me!</button>
-        </form>
-        <h2 className="inverted">Exercise result</h2>
-        {currentTime && username ? (
-          <p>
-            {getGreeting(currentTime)}, {username}!
-          </p> 
-        ) : null }
-      </ExerciseLayout>
-    </>
+    <ExerciseLayout title="The useState Hook" introContent={<Intro />}>
+      <form onSubmit={submitFormHandler} style={{ marginBottom: 32 }}>
+        <label>What is your name?</label>
+        <input
+          type={'text'}
+          name="username"
+          placeholder="E.g: John Doe"
+          autoComplete="off"
+        />
+        <br />
+        <label>What time is it?</label>
+        <input type={'time'} name="currentTime" />
+        <br />
+        <br />
+        <button type={'submit'}>Greet me!</button>
+      </form>
+      <h2 className="inverted">Exercise result</h2>
+      {currentTime && username ? (
+        <p>
+          {getGreeting(currentTime)}, {username}!
+        </p>
+      ) : null}
+    </ExerciseLayout>
   );
 };
 
