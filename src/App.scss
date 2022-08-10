@@ -29,7 +29,8 @@ h6 {
 }
 
 button,
-input[type='button'] {
+input[type='button'],
+select {
   background: white;
   border: solid 2px $theme-black;
   font-weight: 600;
@@ -69,6 +70,13 @@ form {
         border-color: $theme-black;
       }
     }
+
+    select::ms-expand {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      display: none;
+    }
   }
 
   label {
@@ -86,7 +94,8 @@ ul {
   padding-left: 0;
   li {
     padding: 0.4rem;
-    a, a:visited {
+    a,
+    a:visited {
       padding: 0.4rem 1rem;
       text-decoration: none;
       color: $theme-black;

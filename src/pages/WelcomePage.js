@@ -11,10 +11,10 @@ export const WelcomePage = () => {
           <Link to={routes.hooks.useState}>useState training</Link>
         </li>
         <li>
-          <Link to={routes.hooks.useEffect}>useEffect training</Link>
+          <Link to={routes.hooks.useReducer}>useReducer training</Link>
         </li>
         <li>
-          <Link to={routes.hooks.useReducer}>useReducer training</Link>
+          <Link to={routes.hooks.useEffect}>useEffect training</Link>
         </li>
       </ul>
       <h2>Looping and conditional rendering</h2>
